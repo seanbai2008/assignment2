@@ -1,0 +1,24 @@
+<launch>
+
+  <arg name="model" default="$(find assignment2)/urdf/1.urdf"/>
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find assignment2)/rviz/urdf.rviz" />
+  
+  <arg name ="select_user_publisher" default="true"/>
+  
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+
+  <param name="T" type="double" value="5.0"/>
+  <param name="control_frequency" type="double" value="50.0"/>
+  <param name="listener_frequency" type="double" value="20.0"/>
+    
+  <node name="joint_state_pub" pkg="assignment2" type="control.py" if="$(arg select_user_publisher)"/> 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg select_user_publisher)"/>
+  
+  
+  <node name="Marker" pkg="assignment2" type="listener.py" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

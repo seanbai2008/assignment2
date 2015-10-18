@@ -1,0 +1,24 @@
+<package>
+  <name>assignment2</name>
+  <version>1.0.1</version>
+
+  <description>Second assignment for Jarvis's class</description>
+
+  <maintainer email="seanbai2008@gmail.com">Fan Bai</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>diff_drive_controller</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>position_controllers</run_depend>
+  <run_depend>pr2_description</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rqt_robot_steering</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>urdf</run_depend>
+
+</package>
